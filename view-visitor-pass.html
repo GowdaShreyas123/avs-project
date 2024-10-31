@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-3">
+<div class="row">
+<div class="col-lg-12">
+                        <div class="card" id="divToPrint">
+                            <div class="card-body">
+                                <h4 class="card-title" style="text-align: center;color: blue;padding-bottom: 10px;text-decoration:underline;">Visitor Pass Details</h4>
+                                <div class="basic-form">
+                                    {% include 'includes/messages.html' %}
+                                <div class="table-responsive">
+                                    <table border="2" class="table table-bordered" width="100%">
+                                        {% for i in visitorpass %}
+                                        <tr>
+                                            <th colspan="4" style="color:blue">Visitor Details</th>
+                                        </tr>
+                                        
+                                        
+                                                                                    <tr>
+                                            <th>Pass Number</th>
+                                            <td colspan="3">{{i.id}}</td>
+                                        
+                                          </tr>
+                                                                                    <tr>
+                                            <th>Visitor Name</th>
+                                            <td>{{i.visname}}</td>
+                                            <th>Category</th>
+                                            <td>{{i.category}}</td>
+                                          </tr>
+                                          <tr>
+                                             <th>Mobile Number</th>
+                                            <td>{{i.mobilenumber}}</td>
+                                            <th>Address</th>
+                                            <td colspan="3">{{i.address}}</td>
+                                          </tr>
+                                        <tr>
+                                            <th colspan="4" style="color:blue">Pass Details</th>
+                                        </tr>
+                                        
+                                          <tr>
+                                            <th>Apartment no</th>
+                                            <td>{{i.apartment}}</td>
+                                            <th>Floor</th>
+                                            <td>{{i.floor}}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>From Date</th>
+                                            <td>{{i.inputdate}}</td>
+                                            <th>To Date</th>
+                                            <td>{{i.todate}}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>Pass Description</th>
+                                            <td colspan="3">{{i.passdescription}}</td>
+                                          </tr>
+                                            <tr>
+                                            <th>Pass Creation Date</th>
+                                            <td colspan="3">{{i.created_at}}</td>
+                                          </tr>
+                                        
+                                          {% endfor %}
+                                        </table> 
+                                        <p style="text-align: center;font-size: 20px;color: red">
+                                            <input type="button" class="btn btn-primary" value="Print the Pass" onclick="PrintDiv();" /></p> 
+                                </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+
+<script type="text/javascript">     
+    function PrintDiv() {    
+       var divToPrint = document.getElementById('divToPrint');
+       var popupWin = window.open('', '_blank', 'width=500,height=500');
+       popupWin.document.open();
+       popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+        popupWin.document.close();
+            }
+ </script>
+{% endblock %}

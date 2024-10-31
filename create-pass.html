@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-3">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 style="color: red;text-align: center;padding-bottom: 20px;padding-top: 10px;text-decoration: underline;">Create New Pass </h4>
+            </div>
+            <div class="card-body card-block">
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    {% include 'includes/messages.html' %}
+                    {% csrf_token %}
+                    <div class="row form-group">
+
+<div class="col col-md-2">
+                            <label for="text-input" class=" form-control-label">Catagory</label>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <select id="category" name="category" class="form-control" required="">
+                                <option value="">Choose Category</option>
+                                <option value="Guest">Guest</option>
+                                <option value="Maid">Maid</option>
+                                <option value="Cook">Cook</option>
+                                <option value="Laundry">Laundry</option>
+                                <option value="Car Cleaner">Car Cleaner</option>
+                                <option value="Driver">Driver</option>
+                                <option value="Gardener">Gardener</option>
+                                <option value="Milkman">Milkman</option>
+                                <option value="Newspaper">Newspaper</option>
+                                <option value="Others">Others</option>
+                            </select>
+</div>
+
+<div class="col col-md-2">
+<label for="text-input" class=" form-control-label">Visitor Name</label>
+</div>
+<div class="col-12 col-md-4">
+<input type="text" id="visname" name="visname" placeholder="Visitor Name" class="form-control" required="true">
+</div>
+</div>
+                    
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="password-input" class=" form-control-label">Phone Number</label>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <input type="text" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" class="form-control" maxlength="10" required="true">
+                            
+                        </div>
+                  
+                        <div class="col col-md-2">
+                            <label for="textarea-input" class=" form-control-label">Address</label>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <textarea name="address" id="address" rows="3" placeholder="Enter Visitor Address..." class="form-control" required="true"></textarea>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="password-input" class=" form-control-label">Apartment no.</label>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <input type="text" id="apartment" name="apartment" placeholder="Apartment no." class="form-control" required="true">
+                            
+                        </div>
+                        <div class="col col-md-2">
+                            <label for="password-input" class=" form-control-label">Floor/Wing</label>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <input type="text" id="floor" name="floor" placeholder="floor" class="form-control" required="true">
+                            
+                        </div>
+                    </div>
+
+
+<div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="password-input" class=" form-control-label">From Date</label>
+                        </div>
+                        <div class="col-12 col-md-4">
+           <input type="date" id="inputdate" name="inputdate" class="form-control">
+                            
+                        </div>
+                        <div class="col col-md-2">
+                            <label for="password-input" class=" form-control-label">To Date</label>
+                        </div>
+                        <div class="col-12 col-md-4">
+                <input type="date" id="todate" name="todate" class="form-control">
+                            
+                        </div>
+                    </div>
+
+
+                    
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="password-input" class=" form-control-label">Pass Description</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+<input type="text" id="passdescription" name="passdescription" placeholder="Pass Description" class="form-control" required="true">
+                            
+                        </div>
+                    </div>
+                    
+                  <div class="card-footer">
+                <p style="text-align: center;"><button type="submit" name="submit" id="submit" class="btn btn-primary">Create
+                </button></p>
+                
+            </div>
+                </form>
+            </div>
+           
+        </div>
+
+</div>
+                  </div>
+</div>
+
+
+{% endblock %}

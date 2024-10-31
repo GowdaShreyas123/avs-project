@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Total Visitor</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{visitor_count}}</h2>
+                                    
+                                    <a href="{% url 'manage_visitor' %}" style="color: white;">View Visitor</a>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card gradient-2">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Today's Visitor</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{data_count_today}}</h2>
+                                    
+                                    <a href="{% url 'manage_visitor' %}" style="color: white;">View Visitor</a>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                 
+                 
+                   
+                </div>
+
+               
+                <div class="row">
+                   
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card gradient-3">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Yesterday's Visitor</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{data_count_yesterday}}</h2>
+                                    
+                                    <a href="{% url 'manage_visitor' %}" style="color: white;">View Visitor</a>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card gradient-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Last Sevent day's Viistor</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{data_count_last_seven_days}}</h2>
+                                    
+                                    <a href="{% url 'manage_visitor' %}" style="color: white;">View Visitor</a>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card gradient-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Total Pass Created</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{pass_count}}</h2>
+                                    
+                                    <a href="{% url 'manage_visitor_pass' %}" style="color: white;">View Visitor Pass</a>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+
+
+        
+               
+                      
+                       
+                    </div>
+            </div>
+            <!-- #/ container -->
+
+
+{% endblock %}

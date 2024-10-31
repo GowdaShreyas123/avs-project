@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-3">
+<div class="row">
+<div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title" style="text-align: center;color: blue;padding-bottom: 10px;text-decoration:underline;">Manage Visitor Pass</h4>
+                                <div class="basic-form">
+                                    {% include 'includes/messages.html' %}
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered zero-configuration">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Full Name</th>
+                                                <th>Contact Number</th>
+                                                <th>Entery Date and Time</th>
+                                                <th>Apartment Number</th>
+                                                <th>Floor/Wings</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in vispass %}
+                                            <tr>
+                                                <td>{{ i.id}}</td>
+                                                <td>{{ i.visname}}</td>
+                                                <td>{{ i.mobilenumber}}</td>
+                                                <td>{{ i.created_at}}</td>
+                                                <td>{{ i.apartment}}</td>
+                                                <td>{{ i.floor}}</td>
+                                              
+                                                <td><a href="{% url 'view_visitor_pass' i.id %}" class="btn btn-success">View Details</a><a href="{% url 'delete_visitor_pass' i.id %}" class="btn btn-danger">Delete</a></td>
+                                               
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Full Name</th>
+                                                <th>Contact Number</th>
+                                                <th>Email</th>
+                                                <th>Entery Date and Time</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-3">
+<div class="row">
+<div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title" style="text-align: center;padding-bottom: 20px;padding-top: 10px;color: blue;">Visitor Detail Update</h4>
+                                <div class="basic-form">
+                                  {% include 'includes/messages.html' %}
+                                    
+                                        {% csrf_token %}
+                                        {% for i in visitor %}
+                                        <table border="3" class="table table-condensed">
+                                          <tr>
+                                            <th>Category</th>
+                                            <td>{{ i.category}}</td>
+                                          </tr>
+                                            <tr>
+                                                <th>Full Name</th>
+                                                <td>{{ i.fullname}}</td>
+                                              </tr>
+                                            
+                                              <tr>
+                                                <th>Email</th>
+                                                <td>{{ i.email}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Mobile Number</th>
+                                                <td>{{ i.mobilenumber}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Address</th>
+                                                <td>{{ i.address}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Whom to Meet</th>
+                                                <td>{{ i.whomtomeet}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Floor/Wing</th>
+                                                <td>{{ i.floororwings}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Apartment Number</th>
+                                                <td>{{ i.apartmentno}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Reason to Meet</th>
+                                                <td>{{ i.reasontomeet}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Vistor Entring Time</th>
+                                                <td>{{ i.created_at}}</td>
+                                              </tr>
+                                              
+                                        
+                                              <tr>
+                              
+                                                {% if i.status == '0' %}
+                                                <th>Admin Remark</th>
+                                                <td>Not Updatet Yet</td>
+                                                {% else %}
+                                                <th>Admin Remark</th>
+                                                <td>{{ i.remark}}</td>{% endif %}
+                                                <tr>
+                                                  {% if i.status == '0' %}
+                                                  <th>Staus</th>
+                                                  <td>Not Updatet Yet</td>
+                                                  {% else %}
+                                                  <th>Status</th>
+                                                  <td>{{ i.status}}</td> {% endif %}
+                                                  </tr>
+                                    <tr>
+                                        <th>Out Time </th>
+                                        <td>{{i.updated_at}}</td>
+                                    </tr>
+
+
+
+                                    </table>
+                                    {% if i.status == '0'  %}     
+                                    <div class="card">
+                                      <div class="card-body">
+                                          <h4 class="card-title">Guard Remark</h4>
+                                          <div class="basic-form">
+                                            {% include 'includes/messages.html' %}
+                                          
+                                          
+                                          
+                                          
+                                          <form method="POST" style="padding-left: 30px;padding-top: 30px" action="{% url 'update_visitor_remark' %}">
+                                            {% csrf_token %}
+                                                  
+                                                  <div class="form-group row">
+                                                      <label class="col-sm-2 col-form-label">Remark</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="text" id="remark" name="remark" class="form-control" required="">
+                                                          <input type="text" value="{% for i in visitor %}{{i.id}}{% endfor %}" name="vis_id" id="vis_id" class="form-control" required="" hidden>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                    <label class="col-sm-2 col-form-label">Status</label>
+                                                    <div class="col-sm-10">
+                                                      <select id="status" name="status" class="form-control" required="">
+                                                        <option value="Out">Out</option>
+                                                      </select>
+                                                    
+                                                        
+                                                    </div>
+                                                </div>
+                                                 
+          
+          
+                                                  <div class="form-group row">
+                                                      <div class="col-sm-10">
+                                                        <button  class="btn btn-dark">Submit</button>
+                                                          
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                            
+                                           
+                                              {% endif %}
+
+                                      </div>{% endfor %}
+                                            
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+
+
+{% endblock %}

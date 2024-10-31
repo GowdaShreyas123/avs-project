@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-3">
+<div class="row">
+<div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title" style="color: red;text-align: center;padding-bottom: 30px;padding-top: 10px;">Apartment Visitor Form</h4>
+                                <div class="basic-form">
+                                    {% include 'includes/messages.html' %}
+                                    <form method="POST" action="{% url 'add_visitor' %}" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Category</label>
+                                            <div class="col-sm-10">
+                                                <select id="category" name="category" class="form-control" required="">
+                                                    <option value="">Choose Category</option>
+                                                    <option value="Guest">Guest</option>
+                                                    <option value="Maid">Maid</option>
+                                                    <option value="Cook">Cook</option>
+                                                    <option value="Laundry">Laundry</option>
+                                                    <option value="Car Cleaner">Car Cleaner</option>
+                                                    <option value="Driver">Driver</option>
+                                                    <option value="Gardener">Gardener</option>
+                                                    <option value="Milkman">Milkman</option>
+                                                    <option value="Newspaper">Newspaper</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Full Name</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="fullname" name="fullname" placeholder="Full Name" class="form-control" required="">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Email Input</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" id="email" name="email" placeholder="Enter Email" class="form-control" required="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Phone Number</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" class="form-control" maxlength="10" required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Address</label>
+                                            <div class="col-sm-10">
+                                                <textarea name="address" id="address" rows="9" placeholder="Enter Visitor Address..." class="form-control" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Apartment Number</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="apartmentno" name="apartmentno" placeholder="Enter Apt Number" class="form-control" required="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Floor/Wings</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="floororwings" name="floororwings" placeholder="Enter Wings/Floor" class="form-control" required="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Whom to Meet</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="whomtomeet" name="whomtomeet" placeholder="Whom to Meet" class="form-control" required="">
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" style="font-size: 18px;color: blue;">Reason To Meet</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="reasontomeet" name="reasontomeet" placeholder="Reason To Meet" class="form-control" required="">
+                                            </div>
+                                        </div>
+                                        
+
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <button type="submit" class="btn btn-primary">Add</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+
+
+{% endblock %}
